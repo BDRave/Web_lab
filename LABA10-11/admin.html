@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    </meta>
+    <title>Новини</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    </meta>
+    <link rel='stylesheet prefetch' href='css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='css/magnific-popup.css'>
+    <link rel="stylesheet" href="css/admin.css">
+    </link>
+</head>
+
+<body>
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,100,300" rel="stylesheet" type="text/css">
+    </link>
+    <link href="http://fonts.googleapis.com/css?family=Raleway:400,100,700" rel="stylesheet" type="text/css">
+    </link>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
+    </link>
+    <link href="http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,100,300,500,700" rel="stylesheet" type="text/css">
+    </link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#home">
+                    <div class="FB-logo-wrapper">
+                        <img class="FB-logo" src="https://www.cia.gov/library/publications/the-world-factbook/graphics/flags/large/ee-lgflag.gif" height="50px" width="50px">
+                    </div>
+                </a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navHeaderCollapse">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+            </div>
+            <div class="collapse navbar-collapse navHeaderCollapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/index.html">Головна</a>
+                    </li>
+                    <li>
+                        <a href="/news.html">Новини</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     Студентам
+                     <b class="caret"></b>
+                     </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/curriculum.html">Програма</a>
+                            </li>
+                            <li>
+                                <a href="#">Лабораторні</a>
+                            </li>
+                            <li>
+                                <a href="#">Література</a>
+                            </li>
+                        </ul>
+                        <li>
+                            <a href="/feedback.html">Відгуки</a>
+                        </li>
+                        <li>
+                            <a href="/contact.html">Контакти</a>
+                        </li>
+                        <li>
+                            <a href="#">Admin</a>
+                        </li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h1 class="section-header">Add news</h1>
+
+    <body>
+        <div class="comment-form">
+            <div class="comments-app" data-ng-app="indexDBSample" data-ng-controller="TodoController as vm">
+                <form class="form" name="form" validate>
+                    <div class="form-row">
+                        <input class="input" data-ng-model="vm.headingText" name="todo" placeholder="Заголовок" required="required" />
+                    </div>
+                    <div class="form-row">
+                        <input class="input" data-ng-model="vm.subheadingText" name="todo1" placeholder="Підзаголовок" required="required" />
+                        </textarea>
+                    </div>
+                    <div class="form-row">
+                        <textarea class="input" data-ng-model="vm.text" name="todo2" placeholder="Текст новини" required="required"></textarea>
+                    </div>
+                    <div class="input-group image-preview">
+                        <input type="text" class="form-control image-preview-filename" disabled="disabled">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                            <span class="glyphicon glyphicon-remove"></span> Clear
+                        </button>
+                        <div class="btn btn-default image-preview-input">
+                            <span class="fa"></span>
+                            <span class="image-preview-input-title">Browse</span>
+                            <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" />
+                        </div>
+                        </span>
+                    </div>
+                    <div class="form-row">
+                        <input type="submit" value="Add" data-ng-click="vm.addTodo()" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.2.28/angular-route.js"></script>
+    <script src='js/jquery.min.js'></script>
+    <script src="js/indexeddb.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="footer-box">
+                        <ul class="social">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-youtube"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="copyright">
+                            Copyright © 2017. All rights reserved.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

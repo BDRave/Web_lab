@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html manifest="manifest.cache">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Відгуки</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet prefetch' href='css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='css/magnific-popup.css'>
+    <link rel="stylesheet" href="css/feedback.css">
+</head>
+
+<body>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,100,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,100,300,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#home">
+                    <div class="FB-logo-wrapper">
+                        <img class="FB-logo" src="https://www.cia.gov/library/publications/the-world-factbook/graphics/flags/large/ee-lgflag.gif" height="50px" width="50px" />
+                    </div>
+                </a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navHeaderCollapse"> <span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+            </div>
+            <div class="collapse navbar-collapse navHeaderCollapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/index.html">Головна</a>
+                    </li>
+                    <li><a href="/news.html">Новини</a>
+                    </li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Студентам<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/curriculum.html">Програма</a>
+                            </li>
+                            <li><a href="#">Лабораторні</a>
+                            </li>
+                            <li><a href="#">Література</a>
+                            </li>
+                        </ul>
+                        <li><a href="/feedback.html">Відгуки</a>
+                        </li>
+                        <li><a href="/contact.html">Контакти</a>
+                        </li>
+                        <li><a href="/admin.html">Admin</a>
+                        </li>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h1 class="section-header">Comments</h1>
+    <div class="comments-app" ng-app="commentsApp" ng-controller="CommentsController as cmntCtrl">
+
+        <!-- From -->
+        <div class="comment-form">
+            <!-- Comment Avatar -->
+            <div class="comment-avatar">
+                <img src="http://lorempixel.com/200/200/people">
+            </div>
+
+            <form class="form" name="form" ng-submit="form.$valid && cmntCtrl.addComment()" validate>
+                <div class="form-row">
+                    <textarea class="input" ng-model="cmntCtrl.comment.text" placeholder="Add comment..." required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <input class="input" ng-class="{ disabled: cmntCtrl.comment.anonymous }" ng-disabled="cmntCtrl.comment.anonymous" ng-model="cmntCtrl.comment.author" ng-required="!cmntCtrl.comment.anonymous" placeholder="Email" type="text">
+                </div>
+
+                <div class="form-row text-right">
+                    <input id="comment-anonymous" ng-change="cmntCtrl.anonymousChanged()" ng-model="cmntCtrl.comment.anonymous" type="checkbox">
+                    <label for="comment-anonymous">Anonymous</label>
+                </div>
+
+                <div class="form-row">
+                    <input type="submit" value="Add Comment">
+                </div>
+            </form>
+        </div>
+
+        <!-- Comments List -->
+        <div class="comments">
+            <!-- Comment -->
+            <div class="comment" ng-repeat="comment in cmntCtrl.comments | orderBy: '-date'">
+                <!-- Comment Avatar -->
+                <div class="comment-avatar">
+                    <img ng-src="{{ comment.avatarSrc }}">
+                </div>
+
+                <!-- Comment Box -->
+                <div class="comment-box">
+                    <div class="comment-text">{{ comment.text }}</div>
+                    <div class="comment-footer">
+                        <div class="comment-info">
+                            <span class="comment-author">
+                    <em ng-if="comment.anonymous">Anonymous</em>
+                    <a ng-if="!comment.anonymous" href="{{ comment.author }}">{{ comment.author }}</a>
+                  </span>
+                            <span class="comment-date">{{ comment.date | date: 'medium' }}</span>
+                        </div>
+
+                        <div class="comment-actions">
+                            <a href="#">Reply</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comment - Dummy -->
+            <div class="comment">
+                <!-- Comment Avatar -->
+                <div class="comment-avatar">
+                    <img src="http://gravatar.com/avatar/412c0b0ec99008245d902e6ed0b264ee?s=80">
+                </div>
+
+                <!-- Comment Box -->
+                <div class="comment-box">
+                    <div class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum.</div>
+                    <div class="comment-footer">
+                        <div class="comment-info">
+                            <span class="comment-author">
+                    <a href="mailto:sexar@pagelab.io">Sexar</a>
+                  </span>
+                            <span class="comment-date">Feb 2, 2013 11:32:04 PM</span>
+                        </div>
+
+                        <div class="comment-actions">
+                            <a href="#">Reply</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comment - Dummy -->
+            <div class="comment">
+                <!-- Comment Avatar -->
+                <div class="comment-avatar">
+                    <img src="http://lorempixel.com/200/200/people">
+                </div>
+
+                <!-- Comment Box -->
+                <div class="comment-box">
+                    <div class="comment-text">Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam reprehenderit quasi sapiente modi tempora at perspiciatis mollitia, dolores voluptate. Cumque, corrupti?</div>
+                    <div class="comment-footer">
+                        <div class="comment-info">
+                            <span class="comment-author">
+                    <a href="mailto:ximme13@somedomain.io">Ximme</a>
+                  </span>
+                            <span class="comment-date">Jan 31, 1986 11:32:04 PM</span>
+                        </div>
+
+                        <div class="comment-actions">
+                            <a href="#">Reply</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="js/feedback.js"></script>
+    <script src='js/jquery.min.js'></script>
+    <script src='js/scroolreveal.js'></script>
+    <script src='js/bootstrap.min.js'></script>
+    <script src='js/magnific-popup.js'></script>
+
+    <script src="js/index.js"></script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="footer-box">
+                        <ul class="social">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-youtube"></i></a>
+                            </li>
+                        </ul>
+                        <div class="copyright">Copyright © 2017. All rights reserved.</div>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
